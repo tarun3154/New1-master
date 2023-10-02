@@ -1,0 +1,42 @@
+{% extends 'novapp/admin/index.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="page-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <h4 class="page-title">Add Department</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+               
+               <form method ="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label>Department Name</label>
+                    
+                    {% render_field dept.name class="form-control" %}
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    {% comment %} <textarea cols="30" rows="4" name="description" class="form-control"></textarea> {% endcomment %}
+                    {% render_field dept.description class="form-control" %}
+                </div>
+                <div class="form-group">
+                    <label class="display-block">Department Status</label>
+                    {% render_field dept.department_status class="form-check" %}
+                </div>
+                <div class="m-t-20 text-center">
+                    <button class="btn btn-primary submit-btn">Save Department</button>
+                </div>
+            </form>
+               
+            </div>
+        </div>
+    </div>
+    
+</div>
+{% endblock content %}

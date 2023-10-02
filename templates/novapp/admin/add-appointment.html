@@ -1,0 +1,86 @@
+{% extends 'novapp/admin/index.html' %}
+{% load static %}
+{% block content %}
+{% load widget_tweaks %}
+<div class="page-wrapper">
+            <div class="content">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <h4 class="page-title">Add Appointment</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <form method='post' enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+										<label>Appointment ID</label>
+										<input class="form-control" type="text" value="{{app.id}}" >
+									</div>
+                                </div>
+                                <div class="col-md-6">
+									<div class="form-group">
+										<label>Patient Name</label>
+                                        {% render_field  app.patientName class='form-control'%}
+
+									</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Department</label>
+                                        {% render_field  app.department class='form-control'%}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Doctor</label>
+                                      {% render_field app.doctorName class='form-control' %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Date</label>
+                                        <div class="cal-icon">
+                                           {% render_field app.appointmentDate class='form-control' %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Age</label>
+                                       {% render_field app.age class='form-control' %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Patient Email</label>
+                                        {% render_field app.email class='form-control' %}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Patient Phone Number</label>
+                                        {% render_field app.mobileno class='form-control' %}
+                                    </div>
+                                </div>
+                            </div>
+                           
+                         
+                            <div class="m-t-20 text-center">
+                                <button class="btn btn-primary submit-btn">Create Appointment</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+		
+
+{%endblock content%}

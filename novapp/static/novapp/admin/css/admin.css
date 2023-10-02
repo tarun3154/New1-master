@@ -1,0 +1,9 @@
+#id_department_status{
+    display: inline-flex;
+    gap:2rem
+}
+
+#id_department_status label{
+    display: inline-flex;
+    gap: .4rem;
+}
